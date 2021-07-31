@@ -1,14 +1,17 @@
 abstract class SocialFunction {
-  static void marriage(Male bride, Female bridegroom) {
-    print("${bride.name} and ${bridegroom.name} are now married");
+  static void marriage(Animal bride, Animal bridegroom) {
+    // print("${bride.name} and ${bridegroom.name} are now married");
   }
 }
 
+add(int x, int y) {}
 void main(List<String> arguments) {
-  Male adam = Male("Adam", 2, 2);
-  Female eve = Female("Eve", 2, 2);
+  Human adam = Male("Adam", 2, 2);
+  Human eve = Female("Eve", 2, 2);
 
   SocialFunction.marriage(adam, eve);
+
+  add(0, 0);
 }
 
 class Animal {
@@ -37,6 +40,7 @@ class Male extends Human {
       : super(name, numOfLegs, numOfHands);
 
   drive() {
+    
     print(" $name Driving");
   }
 }
