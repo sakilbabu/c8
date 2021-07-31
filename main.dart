@@ -1,55 +1,45 @@
-abstract class SocialFunction {
-  static void marriage(Animal bride, Animal bridegroom) {
-    // print("${bride.name} and ${bridegroom.name} are now married");
+void main(List<String> args) {
+  Add add = Add();
+  var addresult = Calculator.calculate(2, 6, add);
+  print(addresult);
+
+  Sub sub = Sub();
+  var subresult = Calculator.calculate(2, 6, sub);
+  print(subresult);
+
+  Div div = Div();
+  var divresult = Calculator.calculate(2, 6, div);
+  print(divresult);
+
+  Mul mul = Mul();
+  var mulresult = Calculator.calculate(2, 6, mul);
+  print(mulresult);
+}
+
+abstract class Calculator {
+  static num calculate(num x, num y, Operation operation) {
+    if (operation is Add) {
+      return x + y;
+    }
+    if (operation is Sub) {
+      return x - y;
+    }
+    if (operation is Div) {
+      return x / y;
+    }
+    if (operation is Mul) {
+      return x * y;
+    }
+    return 0;
   }
 }
 
-add(int x, int y) {}
-void main(List<String> arguments) {
-  Human adam = Male("Adam", 2, 2);
-  Human eve = Female("Eve", 2, 2);
+abstract class Operation {}
 
-  SocialFunction.marriage(adam, eve);
+class Add extends Operation {}
 
-  add(0, 0);
-}
+class Sub extends Operation {}
 
-class Animal {
-  final int numOfLegs;
+class Div extends Operation {}
 
-  Animal(this.numOfLegs);
-
-  walk() {
-    print("Walking with $numOfLegs legs");
-  }
-}
-
-class Human extends Animal {
-  final String name;
-  final int numOfHands;
-
-  Human(this.name, int numOfLegs, this.numOfHands) : super(numOfLegs);
-
-  eat() {
-    print("$name eating with $numOfHands hands");
-  }
-}
-
-class Male extends Human {
-  Male(String name, int numOfLegs, int numOfHands)
-      : super(name, numOfLegs, numOfHands);
-
-  drive() {
-    
-    print(" $name Driving");
-  }
-}
-
-class Female extends Human {
-  Female(String name, int numOfLegs, int numOfHands)
-      : super(name, numOfLegs, numOfHands);
-
-  cook() {
-    print(" $name Cooking");
-  }
-}
+class Mul extends Operation {}
