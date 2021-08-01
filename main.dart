@@ -1,23 +1,64 @@
 void main(List<String> args) {
-  Calculator.add(1, 2);
-  Calculator.add(1, 2, 2);
-  Man man = Man(5, 8);
-  Man women = Man(5, 8);
-  Man child = Man.fromXZ(5, 8);
+  Cal nc = NormalCal();
+  nc.add(1, 100);
+
+  Cal sc = ScienteficCal();
+  sc.add(2, 3);
 }
 
-abstract class Calculator {
-  static add(int x, int y, [int z = 0]) {
-    print(x + y + z);
+abstract class Cal {
+  int? add(int x, int y);
+  int? sub(int x, int y);
+  int? mul(int x, int y);
+  double? div(int x, int y);
+}
+
+class NormalCal implements Cal {
+  @override
+  int? add(int x, int y) {
+    print("Add from A");
+  }
+
+  @override
+  double? div(int x, int y) {
+    // TODO: implement div
+    throw UnimplementedError();
+  }
+
+  @override
+  int? mul(int x, int y) {
+    // TODO: implement mul
+    throw UnimplementedError();
+  }
+
+  @override
+  int? sub(int x, int y) {
+    // TODO: implement sub
+    throw UnimplementedError();
   }
 }
 
-class Man {
-  int? x;
-  int? y;
-  int? z;
+class ScienteficCal implements Cal {
+  @override
+  int? add(int x, int y) {
+    print("Add from B");
+  }
 
-  Man(this.x, this.y, [this.z = 10]);
-  Man.fromz(this.z);
-  Man.fromXZ(this.x, this.z);
+  @override
+  double? div(int x, int y) {
+    // TODO: implement div
+    throw UnimplementedError();
+  }
+
+  @override
+  int? mul(int x, int y) {
+    // TODO: implement mul
+    throw UnimplementedError();
+  }
+
+  @override
+  int? sub(int x, int y) {
+    // TODO: implement sub
+    throw UnimplementedError();
+  }
 }
